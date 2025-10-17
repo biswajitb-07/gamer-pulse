@@ -26,11 +26,6 @@ const isAdmin = async (req, res, next) => {
     }
     next();
   } catch (error) {
-    console.error("Admin Check Error:", {
-      error: error.message,
-      userId: req.id,
-      stack: error.stack,
-    });
     return res.status(500).json({
       message: "Internal server error",
       success: false,

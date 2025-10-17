@@ -35,7 +35,6 @@ export const uploadMedia = async (file, folder = "image") => {
 
     return uploadResponse;
   } catch (error) {
-    console.error("Upload Error:", error.message);
     throw error;
   }
 };

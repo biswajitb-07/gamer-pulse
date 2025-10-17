@@ -44,7 +44,6 @@ export const googleAuth = async (req, res) => {
 
     return res.redirect(`${process.env.FRONTEND_URL}/`);
   } catch (error) {
-    console.error("Google Auth Error:", error);
     return res.redirect(
       `${process.env.FRONTEND_URL}/login?google=error&message=Google%20login%20failed`
     );
@@ -234,7 +233,6 @@ export const register = async (req, res) => {
       requiresVerification: true,
     });
   } catch (error) {
-    console.error("Registration error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during registration",
@@ -296,7 +294,6 @@ export const login = async (req, res) => {
 
     return generateToken(res, user, "Login successful", 200);
   } catch (error) {
-    console.error("Login error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during login",
@@ -377,7 +374,6 @@ export const verifyOtp = async (req, res) => {
       message: "Invalid OTP type",
     });
   } catch (error) {
-    console.error("OTP verification error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during OTP verification",
@@ -548,7 +544,6 @@ export const resendOtp = async (req, res) => {
       message: "New OTP sent successfully",
     });
   } catch (error) {
-    console.error("Resend OTP error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during resend OTP",
@@ -743,7 +738,6 @@ export const sendPasswordOtp = async (req, res) => {
       message: "OTP sent to your email for password reset.",
     });
   } catch (error) {
-    console.error("Send password OTP error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during sending OTP",
@@ -800,7 +794,6 @@ export const setPassword = async (req, res) => {
       message: "Password updated successfully",
     });
   } catch (error) {
-    console.error("Set password error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during password update",
@@ -821,7 +814,6 @@ export const logout = async (req, res) => {
       message: "Logged out successfully",
     });
   } catch (error) {
-    console.error("Logout error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during logout",
@@ -850,7 +842,6 @@ export const getUserProfile = async (req, res) => {
       user: userObj,
     });
   } catch (error) {
-    console.log(error);
     return res.status(500).json({
       success: false,
       message: "Failed to load user",
@@ -931,7 +922,6 @@ export const updateUserProfile = async (req, res) => {
       message: "Profile updated successfully.",
     });
   } catch (error) {
-    console.error("Update profile error:", error);
     if (error.code === 11000 && error.keyPattern["gameDetails.gameId"]) {
       return res.status(400).json({
         success: false,
@@ -1006,7 +996,6 @@ export const saveWithdrawalMethod = async (req, res) => {
       withdrawalMethods: user.wallet.withdrawalMethods,
     });
   } catch (error) {
-    console.error("Save withdrawal method error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during saving withdrawal method",

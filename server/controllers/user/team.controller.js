@@ -77,7 +77,6 @@ export const createTeam = async (req, res) => {
       },
     });
   } catch (error) {
-    console.error("Create team error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during team creation",
@@ -116,7 +115,6 @@ export const getMyTeams = async (req, res) => {
       squadCount: squadTeams.length,
     });
   } catch (error) {
-    console.error("Get my teams error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error fetching teams",
@@ -161,7 +159,6 @@ export const getPendingInvites = async (req, res) => {
       count: invites.length,
     });
   } catch (error) {
-    console.error("Get pending invites error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error fetching pending invites",
@@ -211,7 +208,6 @@ export const deleteTeam = async (req, res) => {
       message: "Team deleted successfully",
     });
   } catch (error) {
-    console.error("Delete team error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during team deletion",
@@ -278,7 +274,6 @@ export const updateTeamLogo = async (req, res) => {
       teamLogo: team.teamLogo,
     });
   } catch (error) {
-    console.error("Update team logo error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during logo update",
@@ -342,7 +337,6 @@ export const joinTeamRequest = async (req, res) => {
     }
 
     if (!team.leader) {
-      console.error(`Team ${team._id} has no valid leader`);
       return res.status(400).json({
         success: false,
         message: "Team has no valid leader",
@@ -420,7 +414,6 @@ export const joinTeamRequest = async (req, res) => {
       teamId: team._id,
     });
   } catch (error) {
-    console.error("Join team request error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during join request",
@@ -480,7 +473,6 @@ export const updateTeam = async (req, res) => {
       },
     });
   } catch (error) {
-    console.error("Update team error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during team update",
@@ -546,7 +538,6 @@ export const acceptJoinRequest = async (req, res) => {
       team,
     });
   } catch (error) {
-    console.error("Accept join request error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during request acceptance",
@@ -600,7 +591,6 @@ export const rejectJoinRequest = async (req, res) => {
       team,
     });
   } catch (error) {
-    console.error("Reject join request error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during request rejection",
@@ -685,7 +675,6 @@ export const userAcceptInvite = async (req, res) => {
       team,
     });
   } catch (error) {
-    console.error("User accept invite error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during invite acceptance",
@@ -732,7 +721,6 @@ export const userRejectInvite = async (req, res) => {
       team,
     });
   } catch (error) {
-    console.error("User reject invite error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during invite rejection",
@@ -789,7 +777,7 @@ export const removeTeamMember = async (req, res) => {
       team,
     });
   } catch (error) {
-    console.error("Remove team member error:", error);
+
     return res.status(500).json({
       success: false,
       message: "Server error during member removal",
@@ -879,7 +867,6 @@ export const inviteByGameId = async (req, res) => {
       message: "Invite sent successfully",
     });
   } catch (error) {
-    console.error("Invite by Game ID error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during invite",
@@ -927,7 +914,6 @@ export const leaveTeam = async (req, res) => {
       message: "Left team successfully",
     });
   } catch (error) {
-    console.error("Leave team error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during leave team",
@@ -1002,7 +988,6 @@ export const getTeamDetails = async (req, res) => {
       },
     });
   } catch (error) {
-    console.error("Get team details error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error fetching team details",

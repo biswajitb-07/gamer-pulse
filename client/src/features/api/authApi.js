@@ -23,7 +23,6 @@ export const authApi = createApi({
           const result = await queryFulfilled;
           dispatch(userLoggedIn({ user: result.data.user }));
         } catch (error) {
-          console.error(error);
         }
       },
     }),
@@ -38,7 +37,6 @@ export const authApi = createApi({
           const result = await queryFulfilled;
           dispatch(userLoggedIn({ user: result.data.user }));
         } catch (error) {
-          console.error(error);
         }
       },
     }),
@@ -53,7 +51,6 @@ export const authApi = createApi({
           const result = await queryFulfilled;
           dispatch(userLoggedIn({ user: result.data.user }));
         } catch (error) {
-          console.error(error);
         }
       },
     }),
@@ -73,7 +70,6 @@ export const authApi = createApi({
         try {
           dispatch(userLoggedOut());
         } catch (error) {
-          console.error(error);
         }
       },
     }),
@@ -88,7 +84,6 @@ export const authApi = createApi({
 
           dispatch(userLoggedIn({ user: result.data.user }));
         } catch (error) {
-          console.log(error);
         }
       },
       providesTags: ["auth"],
@@ -104,7 +99,6 @@ export const authApi = createApi({
           const result = await queryFulfilled;
           dispatch(userLoggedIn({ user: result.data.user }));
         } catch (error) {
-          console.error(error);
         }
       },
       invalidatesTags: ["auth"],

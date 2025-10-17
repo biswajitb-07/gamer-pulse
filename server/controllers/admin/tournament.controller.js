@@ -58,7 +58,6 @@ export const createTournament = async (req, res) => {
       tournament,
     });
   } catch (error) {
-    console.error("Error creating tournament:", error);
     return res.status(500).json({
       success: false,
       message: "Failed to create tournament.",
@@ -79,7 +78,6 @@ export const getTournaments = async (req, res) => {
       tournaments,
     });
   } catch (error) {
-    console.error("Error fetching tournaments:", error);
     return res.status(500).json({
       success: false,
       message: "Failed to fetch tournaments.",
@@ -109,7 +107,6 @@ export const getTournamentById = async (req, res) => {
       tournament,
     });
   } catch (error) {
-    console.error("Error fetching tournament:", error);
     return res.status(500).json({
       success: false,
       message: "Failed to fetch tournament.",
@@ -141,7 +138,6 @@ export const editTournament = async (req, res) => {
       tournament: updatedTournament,
     });
   } catch (error) {
-    console.error("Error updating tournament:", error);
     return res.status(500).json({
       success: false,
       message: "Failed to update tournament.",
@@ -168,7 +164,6 @@ export const deleteTournament = async (req, res) => {
       message: "Tournament deleted successfully.",
     });
   } catch (error) {
-    console.error("Error deleting tournament:", error);
     return res.status(500).json({
       success: false,
       message: "Failed to delete tournament.",
@@ -182,10 +177,8 @@ export const joinTournament = async (req, res) => {
     const { teamId } = req.body;
     const userId = req.id;
     const tournamentId = req.params.id;
-
-    console.log("Join tournament request:", { tournamentId, userId, teamId });
-
     const tournament = await Tournament.findById(tournamentId);
+
     if (!tournament) {
       return res
         .status(404)
@@ -400,7 +393,6 @@ export const joinTournament = async (req, res) => {
       },
     });
   } catch (error) {
-    console.error("Join tournament error:", error);
     if (error.afterDeduction) {
       const user = await User.findById(req.id);
       const tournamentId = req.params.id;

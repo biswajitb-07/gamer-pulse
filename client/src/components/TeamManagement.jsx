@@ -262,7 +262,7 @@ const TeamManagement = ({ userId }) => {
     try {
       await refetchTeams();
     } catch (refetchError) {
-      console.error("Failed to refetch teams after leaving:", refetchError);
+      toast.error("Failed to refetch teams after leaving:", refetchError);
     }
   };
 

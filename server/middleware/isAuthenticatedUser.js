@@ -19,7 +19,6 @@ const isAuthenticatedUser = async (req, res, next) => {
     req.id = decode.userId;
     next();
   } catch (error) {
-    console.error("JWT Verification Error:", error);
     return res.status(401).json({
       message: "Invalid or expired token",
       success: false,

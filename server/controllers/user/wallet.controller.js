@@ -61,7 +61,6 @@ export const addMoney = async (req, res) => {
       currency: "INR",
     });
   } catch (error) {
-    console.error("Add money error:", error);
     return res
       .status(500)
       .json({ success: false, message: "Server error during add money" });
@@ -187,7 +186,6 @@ export const requestWithdrawal = async (req, res) => {
       payout,
     });
   } catch (error) {
-    console.error("Withdrawal error:", error);
     return res.status(500).json({
       success: false,
       message: "Failed to process withdrawal",
@@ -248,7 +246,6 @@ export const verifyPayment = async (req, res) => {
       .status(200)
       .json({ success: true, message: "Payment verified and added to wallet" });
   } catch (error) {
-    console.error("Verify payment error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during payment verification",
@@ -326,7 +323,6 @@ export const deleteTransaction = async (req, res) => {
       message: "Transaction deleted successfully",
     });
   } catch (error) {
-    console.error("Error deleting transaction:", error);
     return res.status(500).json({
       success: false,
       message: "Failed to delete transaction",

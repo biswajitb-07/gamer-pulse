@@ -342,9 +342,6 @@ const Profile = () => {
       toast.error("Passwords do not match");
       return;
     }
-
-    console.log(newPassword.length);
-
     if (newPassword.length <= 5) {
       toast.error("Password must be at least 6 charcters");
       return;
